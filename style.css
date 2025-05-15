@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: hsl(13, 31%, 94%);
+}
+main{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 30px;
+    margin-left: 50px;
+    margin-top: 50px ;
+    margin-bottom: 50px;
+
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: hsl(20, 50%, 98%);
+    box-shadow: 0px 1.5px 0px 1px hsla(14, 65%, 9%, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+}
+.content h1 {
+    margin-left: 50px;
+}
+.cards {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+.card {
+    width: 250px;
+    height: auto;
+    margin-left: 30px;
+    
+    margin-bottom: 10px;
+}
+.card .imageItem {
+    width: 100%;
+    height: auto;
+}
+.card .imageItem img{
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.card .imageItem img:hover{
+    transform: scale(1.04);
+    transition: 0.3s all ease-in-out;
+    border: 1.5px solid hsl(14, 86%, 42%);
+}
+.card .add-to-cart {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: hsl(0, 0%, 100%);
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid hsla(14, 65%, 9%, 0.3);
+    position: relative;
+    padding: 10px;
+    margin-top: -20px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+.card .add-to-cart img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.card .add-to-cart p {
+    font-size: 16px;
+    color: hsl(14, 65%, 9%);
+    cursor: pointer;
+}
+.card .description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 5px;
+}
+.card .description p {
+    font-size: 14px;
+    color: hsl(14, 25%, 72%);
+}
+.card .description h5 {
+    font-size: 16px;
+    color: hsl(14, 65%, 9%);
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: fit-content;
+    gap: 30px;
+    background-color: hsl(20, 50%, 98%);
+    box-shadow: 0px 1.5px 0px 1px hsla(14, 65%, 9%, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+.orders {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+.order {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order > .calculation {
+    display: flex;
+    flex-direction: column;
+}
+.calculation .name p {
+    color: hsl(14, 65%, 9%);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.calculation .price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: hsl(7, 20%, 60%);
+    gap: 10px;
+}
+.calculation .price .number  {
+    font-size: 14px;
+    font-weight: 700;
+    color: hsl(14, 86%, 42%);
+}
+.order .remove  img{
+    width: 20px;
+    margin-right: 20px;
+
+}
+
+.sidebar hr {
+    width: 95%;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.carbon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(14, 25%, 72%, 0.3);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    gap: 10px;
+}
+.carbon p {
+    color: hsl(14, 65%, 9%);
+    font-size: 16px;
+    font-weight: 700;
+}
+.carbon img {
+    width: 20px;
+}
+
+.sidebar button {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 10px;
+    border: none;
+    background-color: hsl(14, 86%, 42%);
+    color: hsl(0, 0%, 100%);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.sidebar button:hover {
+    background-color: hsl(12, 42%, 57%);
+    transition: 0.3s all ease-in-out;
+}
