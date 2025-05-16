@@ -1,5 +1,8 @@
 const desertMenu = document.getElementById("cards");
 const addToCart = document.getElementById("add-to-cart");
+const orders = document.getElementById("orders");
+const remove = document.getElementById("remove");
+const total = document.getElementById("total");
 
 
 const data = [
@@ -107,36 +110,123 @@ const data = [
 function showDeserts(deserts) {
     desertMenu.innerHTML = ``;
 
-
-    deserts.forEach(desert => {
+    deserts.forEach((desert) => {
         const card = document.createElement("div");
-        
         const cartIcon = "./assets/images/icon-add-to-cart.svg"; 
         card.classList.add("card");
 
         card.innerHTML = `
-            <div class="card">
-
-                <div class="imageItem">
-                    <img src="${desert.image.desktop}" alt="">
-                </div>
-
-                <div class="add-to-cart">
-                    <img src="${cartIcon}" alt="Cart Icon">
-                    <p>Add to Cart</p>
-                </div>
-        
-                <div class="description">
-                    <p>${desert.category}</p>
-                    <h5>${desert.name}</h5>
-                    <p class="price">$${desert.price}</p>
-                </div>
-
+            <div class="imageItem">
+                <img src="${desert.image.desktop}" alt="">
             </div>
-
+            <div class="add-to-cart" style="cursor:pointer;" ">
+                <img src="${cartIcon}" alt="Cart Icon">
+                <p>Add to Cart</p>
+            </div>
+            <div class="description">
+                <p>${desert.category}</p>
+                <h5>${desert.name}</h5>
+                <p class="price">$${desert.price}</p>
+            </div>
         `;
         desertMenu.appendChild(card);
+
+        
+        const addToCartBtn = card.querySelector('.add-to-cart');
+        addToCartBtn.addEventListener('click', () => {
+            
+            addDesertToCart(desert);
+        });
     });
 }
 showDeserts(data);
 
+
+function  addDesertToCart(desert) {
+    if (!orders || !desert) return;
+
+    orders.innerHTML = ``;
+    
+
+
+    const order = document.createElement("div");
+    order.classList.add("order");
+
+   
+    if (!window.cart) window.cart = [];
+
+    
+    const existing = window.cart.find(order => order.name === desert.name);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        window.cart.push({ ...desert, quantity: 1 });
+    }
+
+    
+    orders.innerHTML = '';
+    window.cart.forEach(order => {
+
+        const orderItem = document.createElement("div");
+        const tree = "./assets/images/icon-carbon-neutral.svg";
+        orderItem.classList.add("order");
+
+
+        orderItem.innerHTML = `
+            <div class="calculation">
+                <div class="name">
+                    <p>${order.name}</p> 
+                </div>
+                <div class="price">
+                    <p class="number">${order.quantity} *</p>
+                    <p>${order.price}</p>
+                    <p>$${(order.price * order.quantity).toFixed(2)}</p>
+                </div>
+            </div>
+            <div id="remove" class="remove" >
+                <img src="./assets/images/icon-remove-item.svg" alt="">
+            </div>
+
+        `;
+        
+        
+        orders.appendChild(orderItem);
+    });
+    orders.appendChild(order);
+
+    
+    
+    total.innerHTML = ``; 
+    
+    const totalDiv = document.createElement("div");
+    totalDiv.classList.add("total");
+    
+    totalDiv.innerHTML = `
+    
+    <div class="total" style="gap: 130px;">
+        <p style="margin-right: 10px; font-size:18px;">Total</p>
+        <p style="font-weight: 700; color:hsl(14, 86%, 42%); font-size:16px;">$${window.cart.reduce((total, order) => 
+            total + order.price * order.quantity, 0).toFixed(2)}</p>
+    </div>
+    
+    `;
+    total.appendChild(totalDiv);
+    
+}
+
+
+
+function removeOrder() {
+    
+    window.cart = [];
+    orders.innerHTML = ``;
+    total.innerHTML = ``;
+
+
+
+    
+}
+
+function confirmOrder() {
+
+}
