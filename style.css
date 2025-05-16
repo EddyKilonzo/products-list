@@ -30,17 +30,16 @@ main{
 .cards {
     display: flex;
     align-items: center;
-    margin-left: 30px;
+    margin-left: 20px;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 20px;
 
 }
 .card {
-    width: 250px;
+    width: 220px;
     height: auto;
-    margin-left: 30px;
-    
+    margin-left: 10px;
     margin-bottom: 10px;
 }
 .card .imageItem {
@@ -48,7 +47,7 @@ main{
     height: auto;
 }
 .card .imageItem img{
-    width: 250px;
+    width: 220px;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
@@ -70,7 +69,7 @@ main{
     position: relative;
     padding: 10px;
     margin-top: -20px;
-    margin-left: 50px;
+    margin-left: 20px;
     cursor: pointer;
 }
 .card .add-to-cart img {
@@ -102,6 +101,8 @@ main{
 .sidebar {
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 20px;
     width: 300px;
     height: fit-content;
     gap: 30px;
