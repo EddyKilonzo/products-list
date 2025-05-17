@@ -20,7 +20,7 @@ main{
     flex-direction: column;
     gap: 30px;
     background-color: hsl(20, 50%, 98%);
-    box-shadow: 0px 1.5px 0px 1px hsla(14, 65%, 9%, 0.1);
+    box-shadow: 1px 8px 28px -1px rgba(0,0,0,0.71);
     border-radius: 10px;
     padding: 10px;
 }
@@ -30,17 +30,20 @@ main{
 .cards {
     display: flex;
     align-items: center;
+    justify-content: stretch;
     margin-left: 20px;
-    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
-
+    gap: 25px;
+    
 }
 .card {
     width: 220px;
     height: auto;
     margin-left: 10px;
     margin-bottom: 10px;
+    animation: appear 10s linear;
+    animation-timeline: view();
+    animation-range: entry 10%;
 }
 .card .imageItem {
     width: 100%;
@@ -69,7 +72,7 @@ main{
     position: relative;
     padding: 10px;
     margin-top: -20px;
-    margin-left: 20px;
+    margin-left: 35px;
     cursor: pointer;
 }
 .card .add-to-cart img {
@@ -107,7 +110,7 @@ main{
     height: fit-content;
     gap: 30px;
     background-color: hsl(20, 50%, 98%);
-    box-shadow: 0px 1.5px 0px 1px hsla(14, 65%, 9%, 0.1);
+    box-shadow: 1px 8px 28px -1px rgba(0,0,0,0.71);
     border-radius: 10px;
     padding: 20px;
 }
@@ -194,4 +197,15 @@ main{
 .sidebar button:hover {
     background-color: hsl(12, 42%, 57%);
     transition: 0.3s all ease-in-out;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
 }
