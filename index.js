@@ -203,7 +203,7 @@ function  addDesertToCart(desert) {
     
     totalDiv.innerHTML = `
     
-    <div class="total" style="gap: 130px;">
+    <div class="total" style="gap: 160px;">
         <p style="margin-right: 10px; font-size:18px;">Total</p>
         <p style="font-weight: 700; color:hsl(14, 86%, 42%); font-size:16px;">$${window.cart.reduce((total, order) => 
             total + order.price * order.quantity, 0).toFixed(2)}</p>
@@ -220,12 +220,14 @@ function removeOrder() {
     
     window.cart = [];
     orders.innerHTML = ``;
-    total.innerHTML = ``;
-
-
-
-    
+    total.innerHTML = `${total }`;
+ 
 }
+remove.addEventListener(click, () => {
+    remove.style.backgroundColor = "hsl(3, 77%, 44%)";
+    removeOrder();
+});
+
 
 function confirmOrder() {
 
